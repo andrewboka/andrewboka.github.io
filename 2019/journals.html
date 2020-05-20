@@ -1,3 +1,11 @@
+<style>
+	div#journals {
+		max-width: 1400px;
+		align-content: center;
+		margin:auto;
+	}
+</style>
+
 <html>
 <head>
 <title>taskbar</title>
@@ -29,7 +37,7 @@
 		<td rowspan="2">
 			<img src="images/journals_12.png" width="45" height="133" alt=""></td>
 		<td>
-			<img src="images/journals_13.png" width="144" height="45" alt=""></td>
+			<a href="images/paper.pdf"><img src="images/journals_13.png" width="144" height="45" alt=""></a></td>
 		<td rowspan="2">
 			<img src="images/journals_14.png" width="33" height="133" alt=""></td>
 		<td><a href="../images/resume.pdf"><img src="images/journals_15.png" width="118" height="45" alt=""></a></td>
@@ -53,6 +61,59 @@
 			<img src="images/journals_23.png" width="118" height="88" alt=""></td>
 	</tr>
 </table>
+	
+<div id="journals">
+<h1 align="center" style="font-size:300%">Weekly Journals</h1>
+<h2>Entry 1</h2>
+<p width="1400px" style="font-size:22px">	I met with my mentor, Meredith Lee, and I learned about the data science department's relationship with the 
+U.S. Census Bureau. Specifically, they are actively working on developing interactive data science modules 
+that middle school and high school students can use to analyze 2020 U.S. Census Data. I decided that I wanted 
+to do research that related to the U.S. Census and Dr. Lee pointed me towards intergenerational mobility 
+research conducted by Raj Chetty. Chetty studied economics and received his PhD from  Harvard University, 
+where he is currently a profess of Public Economics. He also directs Opportunity Insights, which uses big 
+data to understand how we can give children from disadvanged backgrounds better chances of succeeding. I 
+started by reading his 2014 paper, <i> Where is the Land of Opportunity? The Geography of Intergenerational Mobility in the U.S. </i>, which explores geographical differences in moibilty in different parts of the United States. Interestingly, some areas have the highest mobility rates in the world while others have some of the lowest mobility rates worldwide. I thought that this would be an appropriate topic that I would be able to use Census data to research more in depth. <br><br><br></p>
+
+<h2>Entry 2</h2>
+<p style="font-size:22px">	
+Raj Chetty's work is quite extensive and I spent a majority of this week reading through his various papers and trying to understand them better. Since he releases his data for public use, I plan to create a simple visualization of intergenerational mobility in different areas of the United States. </p>
+
+<p style="font-size:22px">
+The first paper I read dealt with the geography of intergenerational mobility in the United States. In the paper, two measures of economic mobility were explored: relative mobility and absolute upward mobility. The former is a measure in the difference between expected economic outcomes between children from high-income and low-income families. Visually, this is represented as the slope on a graph plotting parent income rank against mean child income rank. The latter measures the expected economic outcomes of children born to a family in the 25th percentile of the income distribution. Absolute upward mobility is the main measurement Chetty uses to compare the intergenerational mobility in different states. Chetty recognized that much of the variation in children's outcomes emerges before they enter the labor market which suggests that the differences in mobility are driven by factors that affect children while they are growing up. Ultimately, he identified five major factors that are strongly correlated with mobility: 1) segreation; 2) inequality; 3) school quality; 4) social capital indices; and 5) family structure. I think it would be interesting to explore these areas for two different major cities that lie at opposite ends of the mobility spectrum. </p>
+
+<p style="font-size:22px">
+Chetty also explores trends in mobility since the 1940s and shows that the fraction of children earning more than their parents has fallen from 90% in 1940 to about 50% for children born today.<br><br><br></p>
+
+<h2>Entry 3</h2>
+<p style="font-size:22px">	As mentioned in the last entry, I wanted to create a visualization of upward mobility in the United States using the data that Chetty had made publicly available. I first downloaded the data and discovered that he had the data arranged by County Name and County FIPS code. Since I wanted to create a visualization, I needed to separately download a dataset that contained the FIPS code of each county as well as the Latitude and Longitude of each county. I managed to find a dataset that not only included this information, but also contained other statistics about the county such as population, land areas, water area, total area, etc. which could be helpful if I wanted to normalize populations or other numbers between states. I used pandas for Python to merge these two datasets so that I had the latitude and longitude for each county as well as the absolute upward mobility. The first visualization I created, as seen in Figure 1, is a simple scatter plot with longitude and latitude as the x and y coordinates and 50 discrete categories of aboslute upward mobility used to create a heat map of mobility in each county. It is immediately clear that there are unique mobility patterns within different areas of the country. I then used the plot.ly to create a better visualization that allowed me to incorporate more information than I could in the previous graph. If you hover over a point in <a href="https://chart-studio.plotly.com/~andrewboka/10.embed">the plot</a> you will see various statistics about the county. In addition to this, the plot.ly graph gives a clearer representation of the Western United States which has fewer counties that are more spaced out, thus making it difficult to create an accurate representation in a scatter plot. Now that I created the visualization and developed a deeper understanding of Chetty's research, I would like to pick an appropriate research topic that can be explored using this data in conjunction with Census Data.<br>
+  <br><br></b></p>
+
+<h2>Entry 4</h2>
+<p style="font-size:22px">	I decided that I would use data from the Experian credit reporting company to analyze the differences between the cities of Charlotte, NC and San Jose, CA. The Experian data gives insight into Demographics, ethnic Structure, Housing Attributes and Lifesyle and Interests for over half of the United States. I want to perform a case study of each area and examine these areas in the context of the fiv emajor factors that affect mobility as identified by Chetty. I also want to use Experian's Consumer Epnditure data from Census Area Projeections and Estimates (CAPE) dataset which is intended to give an overview of a purchasing profile of a market beyond first party spending metrics. I think I can leverage this dataset to give me information about each of the five characteristics, especially social capital and income inequality.<br><br><br></p>
+
+<h2>Entry 5</h2>
+<p style="font-size:22px">	I prepared a presentation for a showcase in which I described the history of economic mobility int he United States and outlined how I would like to study Charlotte, NC and San Jose, CA in more depth. Unfortunately, due to some management changes at Experian it is now infeasible to get the prepared data from them in a timely manner and I have decided to switch topics. At first, I thought that I could analyze the two regions and explore one of the five areas identified by Chetty in more detail. After searching through publicly available datasets it became clear that I would not be able to do the type of analysis that I had hoped for. At the same time, I saw a study analyzing family complexity and children's well-being. Family complexity is a more detailed measure of family structure. It takes into account more complex relationships than simple one or two parent households. I decided that I would like to do a regression analysis of family complexity and upward economic mobility for each state. Essentially, I would be able to use Chetty's data consisting of mobility estimates for each county and aggregate these to produce a weighted average measurement of each state's mobility rank which can then be plotted against the proportion of types of complex families in a region.<br><br><br></p>
+
+<h2>Entry 6</h2>
+<p style="font-size:22px">	I decided that I needed to review papers that explored the topic of family complexity so that I could perform a more accurate analysis of the data. The main study I referenced was titled <i> Family Complexity among Children in the United States </i>. This study used the Survey of Income and Program Participation (SIPP) dataset to measure family complexity. Family structure only encapsulates the biological relationship of parents to a child along with the marital or union status of parents. However, there are more complex relationships within families, such as sibling relationships, that are not measured by family structure alone. Family complexity can be decomposed into two things: family structure (parental relationshipst o children and one another) and sibling composition (half, step, full siblings). They classify children living in complex families as those who reside with a single parent, stepparent, half sibling or stepsibling. Complex families can have either parent complexity, sibling complexity or both. Previous studies have shown that children raised with a stepparent experience more negative outcomes than children raised by two biological parents. Similarly, children raised by two cohabiting biological parents do not fare as well as those raised by married biological parents. The study also found a relationship between higher complexity levels and lower education levels. Due to these findings, I expect to find a similar relationship between higher levels of parent complexity and lower levels of economic mobility.<br><br><br></p>
+
+<h2>Entry 7</h2>
+<p style="font-size:22px">	The study discussed in the previous journal entry used the SIPP dataset to gather data about parent complexity. I decided that I should use the data from the 2014 SIPP to measure levels of family complexity in different states. The SIPP is a longitudinal household survey conducted by the U.S. Census Bureau. The survey's mission is to provide a nationally representative sample for evaluating: 1) annual and sub-annual income dynamics; 2) movements into and out of government transfer programs; 3) family and social context of individuals and households; and 4) interactins among these items. The 2014 SIPP was administed in panels and conuducted in waves. For the purposes of this study, I simply used Wave 1 data which represents the data gathered from the interviewer the first time they contact a household. Each person is uniquely identified by a combination of their household number and person number within that household. The relationships between individuals within a household are also characterized by a relationship matrix where the diagonal consists of individuals relationships to themselves and all other entries consist of the relationship of the row person number to the column person number. This will allow me to build a comprehensive overview of each household and identify the complexity within each household.<br><br><br></p>
+
+<h2>Entry 8</h2>
+<p style="font-size:22px">	For this project, I decided to use the Python package pandas to analyze the SIPP data. Initially, I downloaded the SIPP data as a .sas file. The file was very large (> 18 GB) so it required me to write a separate pandas program to read in the data and eliminate all the unnecessary columns, leaving only those corresponding to household/family relationships. Once this cleaning was completed, the size of the data was much more manageable and I was able to load it into a jupyter notebook. I wanted to create a table consisting of a state index and the corresponding proportions of different types of family complexity for that state. First, I used a variable that described whether the person described by a particular row was a child, which allowed me to eliminate all households that did not have children since these households would not have any type of family complexity. Theoretically, I could have used multiple waves of SIPP data to receive a more accurate estimate of this number over time but for the purposes of this study I decided that using the first wave of SIPP data was sufficient. Using pandas, I was then able to determine the types of relationships in each household and get a proportion of each type of complexity for each state.<br><br><br></p>
+
+<h2>Entry 9</h2>
+<p style="font-size:22px">	As mentioned in the previous entry, I had compiled the data and produced a summary of the proportions of complexity for each state. Now, I needed to go back to the old jupyter notebook that I used to create the visualization of Chetty's data and output a table that is also indexed on state and has the absolute upward mobility rank for that state. In order to produce an accurate measurement for the mobility rank of each state, I decided that using an average of the mobilities for each county weighted on population in the county would produce the most accurate estimate of that state's overall mobility. Finally, I joined the family complexity and upward mobility tables on the state name and saved them to a .csv file. Then, I loaded the data into R and created graphs describing the different relationships. 
+<br><br><br></p>
+
+<h2>Entry 10</h2>
+<p style="font-size:22px">	As a sanity check, the first graph I created described the relationship between simple two parent biological families and mobility rank. The relationship was positive (the higher the proportion of simple two parent biological families, the higher the mobility rank) and also significant (p~0.04). The next graph described the relationship between parent complexity and mobility rank, which was negative (higher parent complexity implies a lower mobility rank) and significant as well (p~0.004).  The third graph used showed the relationship between sibling complexity and mobility rank which was also negative (higher sibling complexity implies lower mobility rank) and significant (p~0.01). The final graph showed the relationship between family complexity (both parent and sibling complexity) which was also negative and significant (p~0.002). Interestingly, while all results are significant it is clear that using a measure of parent complexity, sibling complexity or family complexity all produce results with a significantly lower p-value and thus there is a much lower probability of obtaining the observed results given that the null hypothesis (no relationship) is true. </p>
+
+<p style="font-size:22px">
+I would have preferred to do a correlation between proportion of family complexity and absolute upward mobility rank for each county, however the SIPP data is too sparse to be representative of every county and furthermore does not specify where a household resides beyond a state coding.<br><br><br></p>
+</div>	
+	
 <!-- End Save for Web Slices -->
 </body>
 </html>
